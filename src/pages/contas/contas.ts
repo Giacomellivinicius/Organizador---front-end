@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ContasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ContaService } from '../../services/domain/contas.service';
 
 @IonicPage()
 @Component({
@@ -15,11 +9,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ContasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public contaService : ContaService) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ContasPage');
+    this.contaService.findAll()
+      .subscribe(response => {
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      });
+    
   }
+
+
 
 }
