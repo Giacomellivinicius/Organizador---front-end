@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ContaDTO } from '../../models/contas.dto';
 import { ContaService } from '../../services/domain/contas.service';
 
 @IonicPage()
@@ -9,22 +10,26 @@ import { ContaService } from '../../services/domain/contas.service';
 })
 export class ContasPage {
 
+  items: ContaDTO[];
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public contaService : ContaService) {
+    public contaService : ContaService,
+    public alertController : AlertController) {
   }
 
   ionViewDidLoad() {
     this.contaService.findAll()
       .subscribe(response => {
-        console.log(response);
+        this.items = response;
       },
       error => {
         console.log(error);
       });
     
   }
+
 
 
 
