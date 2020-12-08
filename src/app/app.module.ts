@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ContaService } from '../services/domain/contas.service';
+import { EmpresaService } from '../services/domain/empresas.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ContaService } from '../services/domain/contas.service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ContaService
+    ContaService,
+    EmpresaService
   ]
 })
 export class AppModule {}

@@ -10,36 +10,14 @@
 
 <ion-content padding>
 <div>
-  <h3>Contas em aberto</h3>
+  <h3>Contas</h3>
   <ion-list>
-    <button ion-item *ngFor="let item of items">
-      <ion-label >{{item.nome}}</ion-label>
-      <ion-label class="valor">R$:{{item.valor}}</ion-label>
-      <ion-checkbox></ion-checkbox>
+    <button 
+    ion-button class="button-contas" 
+    shape="round" 
+    *ngFor="let item of items">
+      {{item.nome}}
       </button>
   </ion-list>
 </div> 
-<div>
-  <h3>Contas Vencidas</h3>
-  <ion-list>
-    <button ion-item>
-      <ion-label color="danger">Teste</ion-label>
-      <ion-checkbox></ion-checkbox>
-    </button>
-    <button ion-item>
-      <ion-label color="danger">Teste1</ion-label>
-      <ion-checkbox></ion-checkbox>
-    </button>
-    </ion-list>
-</div>
-<div>
-  <h3>Contas pagas</h3>
-  <ion-list>
-    <button ion-item>
-      <ion-label color="secondary">Teste</ion-label>
-      <ion-checkbox color="secondary"></ion-checkbox>
-    </button>
-  </ion-list>
-</div> 
-
 </ion-content>

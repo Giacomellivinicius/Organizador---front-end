@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ContaDTO } from '../../models/contas.dto';
+import { EmpresaDTO } from '../../models/empresas.dto';
 import { ContaService } from '../../services/domain/contas.service';
+import { EmpresaService } from '../../services/domain/empresas.service';
 
 @IonicPage()
 @Component({
@@ -10,17 +12,17 @@ import { ContaService } from '../../services/domain/contas.service';
 })
 export class ContasPage {
 
-  items: ContaDTO[];
+  items: EmpresaDTO[];
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public contaService : ContaService,
+    public empresaService : EmpresaService,
     public alertController : AlertController) {
   }
 
   ionViewDidLoad() {
-    this.contaService.findAll()
+    this.empresaService.findAll()
       .subscribe(response => {
         this.items = response;
       },
