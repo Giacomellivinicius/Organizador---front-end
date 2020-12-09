@@ -1,0 +1,28 @@
+
+<ion-header>
+  <div class="menu-container">
+    <button ion-button menuToggle color="dark" id="menu">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <button ion-button color="dark" id="menu-search">
+      <ion-icon name="search" ></ion-icon>
+    </button>
+    <button ion-button color="dark" id="menu-contact">
+      <ion-icon name="contact" ></ion-icon>
+    </button>
+  </div>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <h3 id="titulo">Empresas</h3>
+    <ion-list>
+      <button 
+      ion-button class="button-contas" 
+      shape="round" 
+      *ngFor="let item of items">
+        {{item.nome}}
+      </button>
+    </ion-list>
+  </div>
+</ion-content>

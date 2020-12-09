@@ -15,4 +15,6 @@ export class ContaService{
         return this.http.get<ContaDTO[]>(`${API_CONFIG.baseUrl}/contas`);
     }
 
+    
+
 }

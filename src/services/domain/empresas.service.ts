@@ -15,4 +15,9 @@ export class EmpresaService{
         return this.http.get<EmpresaDTO[]>(`${API_CONFIG.baseUrl}/empresas`);
     }
 
+    findContas(empresa_id : string){
+        const id = this.http.get(`${API_CONFIG.baseUrl}/empresas/${empresa_id}`);
+        return console.log(id);
+    }
+
 }
