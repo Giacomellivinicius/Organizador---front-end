@@ -4,19 +4,18 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Empresas</ion-title>
+    <ion-title>Contas</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <div>
-    <h3 id="titulo">Empresas</h3>
+    <h3 id="titulo">Contas</h3>
     <ion-list>
       <button 
-      ion-button class="button-contas" 
+      ion-button 
       shape="round" 
-      *ngFor="let item of items"
-      (click)="findContas()">
+      *ngFor="let item of items">
         {{item.nome}}
       </button>
     </ion-list>

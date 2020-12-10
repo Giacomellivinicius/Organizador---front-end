@@ -29,4 +29,8 @@ export class EmpresasPage {
       });
   }
 
+  findContas(){
+    this.navCtrl.push('ContasPage');
+  }
+
 }
