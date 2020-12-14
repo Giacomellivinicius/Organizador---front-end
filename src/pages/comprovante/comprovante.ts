@@ -20,18 +20,11 @@ export class ComprovantePage {
   }
 
   ionViewDidLoad() {
-    this.item = {
-      id:"1",
-      dataPagamento: "30/11/2020",
-      valorPago: "19.99",
-    }
-
-    /*
     let conta_id = this.navParams.get('conta_id');
     this.comprovanteService.findByConta(conta_id)
       .subscribe(response => {
         this.item = response;
-      }, error => {} );*/
+      }, error => {} );
 
   }
 

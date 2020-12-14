@@ -31,8 +31,8 @@ export class ContasPage {
 
   };
 
-  showComprovante(/*conta_id : string*/){
-    this.navCtrl.push('ComprovantePage'/*,{conta_id : conta_id}*/);
+  showComprovante(conta_id : string){
+    this.navCtrl.push('ComprovantePage',{conta_id : conta_id});
   }
 
 
