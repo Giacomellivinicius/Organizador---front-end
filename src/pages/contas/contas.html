@@ -16,11 +16,11 @@
         <ion-thumbnail item-start>
           <img src="assets/imgs/conta.png">
         </ion-thumbnail>
-          <!--<h2>{{item.nome}}</h2>-->
+          <p>{{item.id}}</p>
           <h3>Venc: {{item.dataVencimento}}</h3>
           <h2>R$: {{item.valor}}</h2>
           <h3>{{item.estadoPagamento}}</h3>
-          <!--<button ion-button size="small" color="secondary" item-end>comprovante</button>-->
+          <button ion-button size="small" color="primary" (click)="showComprovante(item.id)" item-end>comprovante</button>
       </button>
     </ion-list>
   </div>

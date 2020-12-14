@@ -4,12 +4,7 @@ import { ContaDTO } from '../../models/contas.dto';
 import { ContaService } from '../../services/domain/contas.service';
 import { EmpresaService } from '../../services/domain/empresas.service';
 
-/**
- * Generated class for the ContasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -35,6 +30,10 @@ export class ContasPage {
       error =>{});
 
   };
+
+  showComprovante(/*conta_id : string*/){
+    this.navCtrl.push('ComprovantePage'/*,{conta_id : conta_id}*/);
+  }
 
 
 
