@@ -29,8 +29,8 @@ export class EmpresasPage {
       });
   }
 
-  findContas(){
-    this.navCtrl.push('ContasPage');
+  findContas(empresa_id : string){
+    this.navCtrl.push('ContasPage',{empresa_id: empresa_id});
   }
 
 }

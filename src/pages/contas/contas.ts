@@ -27,18 +27,13 @@ export class ContasPage {
   }
 
   ionViewDidLoad() {
-    this.items = [
-      {
-        id:"1",
-        nome:"Conta-luz",
-        valor:"19.99"
+    let empresa_id = this.navParams.get('empresa_id');
+    this.contaService.findByEmpresa(empresa_id)
+      .subscribe(response=>{
+        this.items = response['contas'];
       },
-      {
-        id:"2",
-        nome:"Conta-Internet",
-        valor:"350,00"
-      }
-    ]
+      error =>{});
+
   };
 
 

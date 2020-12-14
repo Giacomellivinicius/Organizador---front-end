@@ -16,7 +16,7 @@
       ion-button class="button-contas" 
       shape="round" 
       *ngFor="let item of items"
-      (click)="findContas()">
+      (click)="findContas(item.id)">
         {{item.nome}}
       </button>
     </ion-list>
