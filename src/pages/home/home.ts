@@ -21,7 +21,7 @@ export class HomePage {
   }
 
   login(){
-    this.navCtrl.setRoot('EmpresasPage');
+    this.navCtrl.setRoot('InicialPage');
   }
 
 }

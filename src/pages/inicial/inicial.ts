@@ -21,4 +21,8 @@ export class InicialPage {
     console.log('ionViewDidLoad InicialPage');
   }
 
+  salvarConta(){
+    this.navCtrl.push('CadastrarContaPage');
+  }
+
 }
