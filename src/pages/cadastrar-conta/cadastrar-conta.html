@@ -9,19 +9,19 @@
 </ion-header>
 
 <ion-content padding>
-  <form (ngSubmit)="salvarConta(); $event.preventDefault()" >
+  <form [formGroup]="formGroup" (ngSubmit)="salvarConta(); $event.preventDefault()" >
     <ion-item>
       <ion-label stacked>Nome</ion-label>
-      <ion-input name="nome" type="text"></ion-input>
+      <ion-input formControlName="nome" type="text"></ion-input>
     </ion-item>
     <ion-item>
       <!--TODO máscara para digtação -->
       <ion-label stacked>Valor</ion-label>
-      <ion-input name="valor" type="text"></ion-input>
+      <ion-input formControlName="valor" type="text"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label stacked>Empresa*</ion-label>
-      <ion-select name="empresa" type="text" placeholder="Selecione uma empresa">
+      <ion-select formControlName="empresa" type="text" placeholder="Selecione uma empresa">
         <ion-option value="1">Luz</ion-option>
         <ion-option value="2">Água</ion-option>
         <ion-option value="3">Gás</ion-option>
@@ -33,8 +33,8 @@
         <ion-option value="9">OUTROS</ion-option>
       </ion-select>
     </ion-item>
-      <ion-list radio-group name="tipoCusto">
-        <ion-list-header>Tipo de Custo</ion-list-header>
+      <ion-list radio-group formControlName="tipoCusto">
+        <ion-list-header>Tipo de Custo:</ion-list-header>
         <ion-item>
           <ion-label>Custo Fixo</ion-label>
           <ion-radio checked="true" value="1"></ion-radio>
@@ -47,17 +47,27 @@
     <ion-item>
       <!-- TODO Datepicker -->
       <ion-label stacked>Data de vencimento</ion-label>
-      <ion-input name="dataVencimento" type="text"></ion-input>
+      <ion-input formControlName="dataVencimento" type="text"></ion-input>
     </ion-item>
-    <ion-item>
-      <!-- TODO RadioButton? Selector? -->>
-      <ion-label stacked>estadoPagamento</ion-label>
-      <ion-input name="estadoPagamento" type="text"></ion-input>
-    </ion-item>
+      <ion-list radio-group formControlName="estadoPagamento">
+        <ion-list-header>Estado do pagamento:</ion-list-header>
+        <ion-item>
+          <ion-label>PAGO</ion-label>
+          <ion-radio value="1"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>PENDENTE</ion-label>
+          <ion-radio checked="true" value="2"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>VENCIDA</ion-label>
+          <ion-radio value="3"></ion-radio>
+        </ion-item>
+      </ion-list>
     <ion-item>
       <!-- TODO default="indeterminado" - Selecionar qtd meses? datepicker/mês? -->
       <ion-label stacked>vigencia</ion-label>
-      <ion-input name="vigencia" type="text"></ion-input>
+      <ion-input formControlName="vigencia" type="text"></ion-input>
     </ion-item>
     <button ion-button block type="submit">Cadastrar Conta</button>
   </form>
