@@ -22,11 +22,10 @@
       <ion-input formControlName="valor" type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <!-- Carregar dinamicamente? -->
       <ion-label stacked>Empresa*</ion-label>
       <ion-select formControlName="empresa" type="text" placeholder="Selecione uma empresa" >
         <!-- Colocar [value] = "empresa_id" -- ??? -->
-        <ion-option *ngFor="let empresa of empresas; first as f">{{empresa.nome}}</ion-option>
+        <ion-option *ngFor="let empresa of empresas" [value]="empresa.id" >{{empresa.nome}}</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>

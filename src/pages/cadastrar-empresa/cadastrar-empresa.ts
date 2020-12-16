@@ -43,16 +43,17 @@ export class CadastrarEmpresaPage {
   }
 
   showInsertOk(){
+    let empresaNome = this.formGroup.value['nome'];
+    console.log(empresaNome);
     let alert = this.alertCtrl.create({
       title:'Cadastro realizado!',
-      message:'Empresa cadastrada com sucesso',
+      message:`Empresa ${empresaNome} cadastrada com sucesso!`,
       enableBackdropDismiss: false,
       buttons: [
         {
           text: 'OK',
           handler: () => {
             this.navCtrl.pop();
-
           }
         }
       ]
