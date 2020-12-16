@@ -14,12 +14,15 @@
       <ion-label stacked>Nome</ion-label>
       <ion-input formControlName="nome" type="text"></ion-input>
     </ion-item>
+    <p *ngIf="formGroup.controls['nome'].dirty && formGroup.controls['nome'].errors "
+     margin-left >Valor Inválido</p>
     <ion-item>
-      <!--TODO máscara para digtação -->
+      <!--TODO máscarar para digitação -->
       <ion-label stacked>Valor</ion-label>
       <ion-input formControlName="valor" type="text"></ion-input>
     </ion-item>
     <ion-item>
+      <!-- Carregar dinamicamente? -->
       <ion-label stacked>Empresa*</ion-label>
       <ion-select formControlName="empresa" type="text" placeholder="Selecione uma empresa">
         <ion-option value="1">Luz</ion-option>
@@ -32,6 +35,12 @@
         <ion-option value="8">Spotify</ion-option>
         <ion-option value="9">OUTROS</ion-option>
       </ion-select>
+    </ion-item>
+    <ion-item>
+      <button 
+      ion-button (click)="cadastrarEmpresa()" 
+      type="button" 
+      color="dark">Cadastrar Nova Empresa</button>
     </ion-item>
       <ion-list radio-group formControlName="tipoCusto">
         <ion-list-header>Tipo de Custo:</ion-list-header>
@@ -53,7 +62,7 @@
         <ion-list-header>Estado do pagamento:</ion-list-header>
         <ion-item>
           <ion-label>PAGO</ion-label>
-          <ion-radio value="1"></ion-radio>
+          <ion-radio value="1" (click)="pagarConta()"></ion-radio>
         </ion-item>
         <ion-item>
           <ion-label>PENDENTE</ion-label>

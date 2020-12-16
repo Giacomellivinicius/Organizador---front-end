@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ContaDTO } from '../../models/contas.dto';
 import { ContaService } from '../../services/domain/contas.service';
-import { EmpresaService } from '../../services/domain/empresas.service';
 
 
 

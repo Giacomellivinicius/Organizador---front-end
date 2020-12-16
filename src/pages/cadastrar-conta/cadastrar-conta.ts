@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, RequiredValidator, Validators } from '@angular/forms';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ContaService } from '../../services/domain/contas.service';
 
 
 @IonicPage()
@@ -15,7 +16,9 @@ export class CadastrarContaPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public formBuilder: FormBuilder) {
+    public formBuilder: FormBuilder,
+    public contaService: ContaService,
+    public alertCtrl: AlertController) {
 
       this.formGroup = this.formBuilder.group({
         nome: ['',[Validators.required]],
@@ -33,8 +36,36 @@ export class CadastrarContaPage {
   }
 
   salvarConta(){
-    console.log("Formulário enviado!");
+    this.contaService.insert(this.formGroup.value)
+      .subscribe(response => {
+        this.showInsertOk();
+      },
+      error => {});
   }
 
+  showInsertOk(){
+    let alert = this.alertCtrl.create({
+      title:'Cadastro realizado!',
+      message:'Conta cadastrada com sucesso',
+      enableBackdropDismiss: false,
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            this.navCtrl.pop();
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  cadastrarEmpresa(){
+    console.log("CadastrarEmpresa");
+  }
+
+  pagarConta(){
+    console.log("Pagar Conta");
+  }
 
 }
