@@ -1,0 +1,39 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Cadastrar Empresa</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <form [formGroup]="formGroup" (ngSubmit)="salvarEmpresa(); $event.preventDefault()" >
+      <ion-card-content>
+        <img src="assets/imgs/empresa.png" >
+        <ion-card-title>Cadastrar Nova Empresa:</ion-card-title>
+        <ion-item>
+          <ion-label stacked>Nome</ion-label>
+          <ion-input formControlName="nome" type="text"></ion-input>
+        </ion-item>
+        <ion-list radio-group formControlName="prioridade">
+          <ion-list-header><h1>Prioridade do serviço:</h1></ion-list-header>
+          <ion-item>
+           <ion-label>ESSENCIAL</ion-label>
+           <ion-radio value="0"></ion-radio>
+          </ion-item>
+          <ion-item>
+           <ion-label>DESEJÁVEL</ion-label>
+           <ion-radio value="1"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>DISPENSÁVEL</ion-label>
+            <ion-radio value="2"></ion-radio>
+          </ion-item>
+        </ion-list>
+        <button ion-button block type="submit" >Salvar</button>
+      </ion-card-content>
+    </form>
+    
+  </ion-card>
+    
+</ion-content>

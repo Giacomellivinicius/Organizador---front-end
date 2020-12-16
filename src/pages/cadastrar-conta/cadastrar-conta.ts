@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { EmpresaDTO } from '../../models/empresas.dto';
 import { ContaService } from '../../services/domain/contas.service';
+import { EmpresaService } from '../../services/domain/empresas.service';
 
 
 @IonicPage()
@@ -12,12 +14,14 @@ import { ContaService } from '../../services/domain/contas.service';
 export class CadastrarContaPage {
 
   formGroup : FormGroup;
+  empresas:EmpresaDTO[];
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public formBuilder: FormBuilder,
     public contaService: ContaService,
+    public empresaService: EmpresaService,
     public alertCtrl: AlertController) {
 
       this.formGroup = this.formBuilder.group({
@@ -32,7 +36,19 @@ export class CadastrarContaPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastrarContaPage');
+    this.empresaService.findAll()
+      .subscribe(response => {
+        this.empresas = response;
+      },
+      error=>{});
+  }
+
+  ionViewWillEnter(){
+    this.empresaService.findAll()
+    .subscribe(response => {
+      this.empresas = response;
+    },
+    error=>{});
   }
 
   salvarConta(){
@@ -61,8 +77,10 @@ export class CadastrarContaPage {
   }
 
   cadastrarEmpresa(){
-    console.log("CadastrarEmpresa");
+    this.navCtrl.push('CadastrarEmpresaPage');
   }
+
+  
 
   pagarConta(){
     console.log("Pagar Conta");

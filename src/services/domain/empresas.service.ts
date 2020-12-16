@@ -20,4 +20,17 @@ export class EmpresaService{
         return console.log(id);
     }
 
+    insert(obj : EmpresaDTO){
+        return this.http.post(
+            `${API_CONFIG.baseUrl}/empresas`,
+            obj,
+            {
+                observe: 'response',
+                responseType : 'text'
+            }
+        );
+    }
+
+
+
 }

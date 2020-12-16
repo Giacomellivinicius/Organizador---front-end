@@ -24,16 +24,9 @@
     <ion-item>
       <!-- Carregar dinamicamente? -->
       <ion-label stacked>Empresa*</ion-label>
-      <ion-select formControlName="empresa" type="text" placeholder="Selecione uma empresa">
-        <ion-option value="1">Luz</ion-option>
-        <ion-option value="2">Água</ion-option>
-        <ion-option value="3">Gás</ion-option>
-        <ion-option value="4">Internet</ion-option>
-        <ion-option value="5">Telefone</ion-option>
-        <ion-option value="6">Netflix</ion-option>
-        <ion-option value="7">Amazon Prime</ion-option>
-        <ion-option value="8">Spotify</ion-option>
-        <ion-option value="9">OUTROS</ion-option>
+      <ion-select formControlName="empresa" type="text" placeholder="Selecione uma empresa" >
+        <!-- Colocar [value] = "empresa_id" -- ??? -->
+        <ion-option *ngFor="let empresa of empresas; first as f">{{empresa.nome}}</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
@@ -46,11 +39,11 @@
         <ion-list-header>Tipo de Custo:</ion-list-header>
         <ion-item>
           <ion-label>Custo Fixo</ion-label>
-          <ion-radio checked="true" value="1"></ion-radio>
+          <ion-radio checked="true" value="0"></ion-radio>
         </ion-item>
         <ion-item>
           <ion-label>Custo Variavel</ion-label>
-          <ion-radio value="2"></ion-radio>
+          <ion-radio value="1"></ion-radio>
         </ion-item>
       </ion-list>
     <ion-item>
